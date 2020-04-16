@@ -1,0 +1,107 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            margin-left: 20px;
+            width: 1100px;
+        }
+    </style>
+
+    <title>유투브 주소 변환</title>
+</head>
+
+<body>
+    <div>
+        <h1>##### 유투브를 전체화면으로 볼 수 있도록 주소 변환하기 #####</h1>
+    </div>
+
+    <div>
+        <span style="font-size : 45px; color:blue;">
+                 ...... 변환시킬 유투브 주소를 입력해 주세요 ......</span>
+        <textarea id="todoContent" name="todoContent" form="addinput"
+                     style="font-size : 45px;
+                              border: 5px solid green;
+                              border-radius: 4px;
+                              background-color: #D8F6CE;
+                              width:1000px; height:200px;
+                              padding:15px;
+                              color:black;"></textarea>
+         <br><br>
+         <span class="input-group-btn">
+             <button type="submit" style="font-size : 45px;"
+                        onclick="changeAddress()">주소 변환하기</button>
+         </span>
+    </div>
+
+    <br>
+
+    <div>
+        <span style="font-size : 45px; color : blue;">...... 변환된 주소 ......</span>
+        <textarea id="changedAdd" name="changedAdd"
+                    value= "{{ newadd }}"
+                    style="font-size : 45px;
+                    border: 5px solid green;
+                    border-radius: 4px;
+                    background-color: #D8F6CE;
+                    width:1000px; height:200px;
+                    padding:15px;
+                    color:black;"></textarea><br><br>
+        <span class="input-group-btn">
+            <button type="submit" style="font-size : 45px;"
+                       onclick="copy_to_clipboard()">클립보드로 주소 복사</button>
+        </span>
+    </div>
+
+    <br>
+    <span style="font-size : 25px;">made by Choi, Hyundoo</span>
+
+
+    <script>
+    function copy_to_clipboard() {
+        var copyText = document.getElementById("changedAdd");
+        copyText.select();
+        document.execCommand("Copy");
+    }
+
+
+    function changeAddress() {
+
+        var originalAddress = document.getElementById("todoContent").value;
+        var before_todos = originalAddress.trim();
+
+        var isthere = before_todos.indexOf('&feature=youtu.be')
+        if (isthere !== -1) {
+            before_todos = before_todos.replace('&feature=youtu.be', '');
+        }
+
+        var isthere = before_todos.indexOf('&list')
+        if (isthere !== -1) {
+            before_todos = before_todos.slice(0, isthere);
+        }
+
+        var isthere = before_todos.indexOf('/watch?v=')
+        if (isthere !== -1) {
+            before_todos = before_todos.replace('/watch?v=', '/watch_popup?v=');
+        }
+        else {
+            before_todos = before_todos.replace('youtube.com/', 'youtube.com/watch_popup?v=');
+        }
+
+        var isthere = before_todos.indexOf('https://youtu.be/')
+        if (isthere !== -1) {
+            before_todos = before_todos.replace('https://youtu.be/', 'https://youtube.com/watch_popup?v=');
+        }
+         
+
+        var newadd = before_todos;
+        var myElem = document.getElementById('changedAdd');
+        myElem.value = newadd;
+    }
+
+    </script>
+
+
+</body>
+</html>
