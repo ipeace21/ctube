@@ -51,6 +51,8 @@
         <span class="input-group-btn">
             <button type="submit" style="font-size : 45px;"
                        onclick="copy_to_clipboard()">클립보드로 주소 복사</button>
+            <button type="submit" style="font-size : 45px;"
+                       onclick="testopen()">테스트</button>
         </span>
     </div>
 
@@ -59,6 +61,9 @@
 
 
     <script>
+
+    var newaddress = document.getElementById('changedAdd');
+
     function copy_to_clipboard() {
         var copyText = document.getElementById("changedAdd");
         copyText.select();
@@ -82,10 +87,11 @@
         }
 
         var isthere = before_todos.indexOf('/watch?v=')
+        var istoo = before_todos.indexOf('youtube.com/watch_popup?v=')
         if (isthere !== -1) {
             before_todos = before_todos.replace('/watch?v=', '/watch_popup?v=');
         }
-        else {
+        else if(istoo == -1) {
             before_todos = before_todos.replace('youtube.com/', 'youtube.com/watch_popup?v=');
         }
 
@@ -98,6 +104,14 @@
         var newadd = before_todos;
         var myElem = document.getElementById('changedAdd');
         myElem.value = newadd;
+        newaddress = newadd; 
+
+    }
+
+
+    function testopen(){
+        PopWin = window.open(newaddress, '', '');
+        PonWin.focus();
     }
 
     </script>
