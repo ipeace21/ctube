@@ -24,15 +24,20 @@
         <textarea id="todoContent" name="todoContent" form="addinput"
                      style="font-size : 30px;
                               border: 5px solid green;
-                              border-radius: 12px;
+                              border-radius: 15px;
                               background-color: #D8F6CE;
                               width:1000px; height:105px;
                               padding:15px;
                               color:black;
-                              outline:none;"></textarea>
+                              outline:none;
+                              margin-top:5px;
+                              box-shadow: 0px 0px 10px 3px green;"></textarea>
          <br><br>
          <span class="input-group-btn">
-             <button type="submit" style="font-size : 35px;"
+             <button type="submit"
+                        style="font-size:30px;
+                        border-radius: 10px; outline:none;
+                        padding-left:30px; padding-right:30px; padding-top:10px; padding-bottom:10px;"
                         onclick="changeAddress()">주소 변환하기</button>
          </span>
     </div>
@@ -44,18 +49,26 @@
         <textarea id="changedAdd" name="changedAdd"
                     value= "{{ newadd }}"
                     style="font-size : 30px;
-                    border: 5px solid green;
-                    border-radius: 12px;
-                    background-color: #D8F6CE;
+                    border: 5px solid #e600ac;
+                    border-radius: 15px;
+                    background-color: #ffccf3;
                     width:1000px; height:105px;
                     padding:15px;
                     color:black;
-                    outline:none;"></textarea><br><br>
+                    outline:none;
+                    margin-top:5px;
+                    box-shadow: 0px 0px 10px 3px #e600ac;"></textarea><br><br>
         <span class="input-group-btn">
-            <button type="submit" style="font-size : 35px;"
+            <button type="submit"
+                       style="font-size:30px;
+                       border-radius: 10px; outline:none;
+                       padding-left:30px; padding-right:30px; padding-top:10px; padding-bottom:10px;"
                        onclick="testopen()">테스트</button>
             <span>.......</span>
-            <button type="submit" style="font-size : 35px;"
+            <button type="submit"
+                       style="font-size:30px;
+                       border-radius: 10px; outline:none;
+                       padding-left:30px; padding-right:30px; padding-top:10px; padding-bottom:10px;"
                        onclick="copy_to_clipboard()">클립보드로 주소 복사</button>
         </span>
     </div>
