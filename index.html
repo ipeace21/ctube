@@ -3,10 +3,27 @@
     <meta charset="UTF-8">
 
     <style>
-        body {
+        body{
             margin-left: 20px;
             width: 1100px;
-        }
+            }
+        .cl_textarea{
+            font-size : 30px;
+            border: 1px solid #737373;
+            border-radius: 0px;
+            background-color: rgb(240, 255, 255);
+            width:1000px; height:105px;
+            padding:15px;
+            color:black;
+            outline:none;
+            margin-top:10px;
+            box-shadow: 0px 0px 10px 3px #737373;
+            }
+        .cl_button{
+            font-size:30px;
+            border-radius: 10px; outline:none;
+            padding-left:30px; padding-right:30px; padding-top:10px; padding-bottom:10px;
+            }
     </style>
 
     <title>유투브 주소 변환</title>
@@ -22,22 +39,10 @@
         <span style="font-size : 35px; color:blue;">
                  ...... 변환시킬 유투브 주소를 입력해 주세요 ......</span>
         <textarea id="todoContent" name="todoContent" form="addinput"
-                     style="font-size : 30px;
-                              border: 1px solid #737373;
-                              border-radius: 0px;
-                              background-color: rgb(240, 255, 255);
-                              width:1000px; height:105px;
-                              padding:15px;
-                              color:black;
-                              outline:none;
-                              margin-top:10px;
-                              box-shadow: 0px 0px 10px 3px #737373;"></textarea>
+                     class="cl_textarea"></textarea>
          <br><br>
-         <span class="input-group-btn">
-             <button type="submit"
-                        style="font-size:30px;
-                        border-radius: 10px; outline:none;
-                        padding-left:30px; padding-right:30px; padding-top:10px; padding-bottom:10px;"
+         <span>
+             <button type="submit" class="cl_button"
                         onclick="changeAddress()">주소 변환하기</button>
          </span>
     </div>
@@ -48,27 +53,12 @@
         <span style="font-size : 35px; color : blue;">...... 변환된 주소 ......</span>
         <textarea id="changedAdd" name="changedAdd"
                     value= "{{ newadd }}"
-                    style="font-size : 30px;
-                    border: 1px solid #737373;
-                    border-radius: 0px;
-                    background-color: rgb(240, 255, 255);
-                    width:1000px; height:105px;
-                    padding:15px;
-                    color:black;
-                    outline:none;
-                    margin-top:10px;
-                    box-shadow: 0px 0px 10px 3px #737373;"></textarea><br><br>
-        <span class="input-group-btn">
-            <button type="submit"
-                       style="font-size:30px;
-                       border-radius: 10px; outline:none;
-                       padding-left:30px; padding-right:30px; padding-top:10px; padding-bottom:10px;"
+                    class="cl_textarea"></textarea><br><br>
+        <span>
+            <button type="submit" class="cl_button"
                        onclick="testopen()">테스트</button>
             <span>.......</span>
-            <button type="submit"
-                       style="font-size:30px;
-                       border-radius: 10px; outline:none;
-                       padding-left:30px; padding-right:30px; padding-top:10px; padding-bottom:10px;"
+            <button type="submit" class="cl_button"
                        onclick="copy_to_clipboard()">클립보드로 주소 복사</button>
         </span>
     </div>
