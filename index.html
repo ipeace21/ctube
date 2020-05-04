@@ -111,7 +111,9 @@
             before_todos = before_todos.replace('https://youtu.be/', 'https://youtube.com/watch_popup?v=');
         }
          
-
+        before_todos = before_todos.replace('youtube.com/watch_popup?v=', 'youtube-nocookie.com/embed/');
+        
+        
         var newadd = before_todos;
         var myElem = document.getElementById('changedAdd');
         myElem.value = newadd;
